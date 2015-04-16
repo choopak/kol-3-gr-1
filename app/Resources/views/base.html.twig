@@ -16,57 +16,94 @@
 
 <ul>
 
-    <!-- A -->
+    {% block login_logout_panel %}
+        <ul>
+            <li>
+                <a href="{{ path('homepage') }}">
+                    Homepage
+                </a>
+            </li>
 
-    <!-- B -->
 
-    <!-- C -->
+            <!-- A -->
 
-    <!-- D -->
+            <!-- B -->
 
-    <!-- E -->
+            <!-- C -->
 
-    <!-- F -->
+            <!-- D -->
 
-    <!-- G -->
-    
-    <!-- H -->
-    
-    <!-- I -->
+            <!-- E -->
 
-    <!-- J -->
+            <!-- F -->
 
-    <!-- K -->
+            <!-- G -->
 
-    <!-- L -->
+            <!-- H -->
 
-    <!-- M -->
+            <!-- I -->
 
-    <!-- N -->
+            <!-- J -->
 
-    <!-- O -->
+            <!-- K -->
 
-    <!-- P -->
+            <!-- L -->
 
-    <!-- Q -->
+            <!-- M -->
 
-    <!-- R -->
+            <!-- N -->
 
-    <!-- S -->
+            <!-- O -->
 
-    <!-- T -->
+            <!-- P -->
 
-    <!-- U -->
+            <!-- Q -->
 
-    <!-- V -->
+            <!-- R -->
 
-    <!-- W -->
+            <!-- S -->
 
-    <!-- X -->
+            <!-- T -->
 
-    <!-- Y -->
+            <!-- U -->
 
-    <!-- Z -->
+            <!-- V -->
+
+            <!-- W -->
+
+            <!-- X -->
+
+            <!-- Y -->
+
+            <!-- Z -->
+
+
+
+            {% if is_granted('ROLE_USER') %}
+                <li>Logged in as {{ app.user.username }}</li>
+                <li>
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_reptile') }}">
+                        Reptiles
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{ path('fos_user_security_login') }}">
+                        {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    {% endblock login_logout_panel %}
+
+
+
+
 
 </ul>
     {% block body %}{% endblock %}
