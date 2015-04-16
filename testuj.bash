@@ -22,7 +22,6 @@ rm -rf /app/symfony2app/app/cache/*
 
 mysql -u root < "${BASEDIR}/00-extra/db/create-empty-database.sql"
 php "${BASEDIR}/app/console" doctrine:schema:update --force
-php app/console doctrine:fixture:load
 
 /app/symfony2app/vendor/behat/behat/bin/behat $@
 
